@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: crypto-app
+  name: crypto-app
+  namespace: development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: crypto-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: crypto-app
+    spec:
+      containers:
+      - image: neamulkabiremon/cryptoapp:latest
+        imagePullPolicy: Always
+        name: crypto-app
+        ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
