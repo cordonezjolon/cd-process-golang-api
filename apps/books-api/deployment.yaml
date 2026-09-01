@@ -28,6 +28,7 @@ spec:
         envFrom:
         - secretRef:
             name: books-go-api-secret
+            namespace: doppler-operator-system
 
         ports:
         - containerPort: 8080
