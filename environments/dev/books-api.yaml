@@ -12,7 +12,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: books-api-development
-  
+   
   syncPolicy:
     automated:
       prune: true
