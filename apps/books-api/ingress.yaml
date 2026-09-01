@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: crypto-ingress
-  namespace: development
+  name: books-ingress
+  namespace: books-api-development
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-stage"
     #external-dns.alpha.kubernetes.io/hostname: cryptoapp.neamulkabiremon.com
@@ -10,20 +10,20 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - 35.255.220.46.nip.io
+        - books.35.255.220.46.nip.io
       secretName: crypto-cert-staging
     # - hosts:
     #     - cryptoapp.neamulkabiremon.com
     #   secretName: crypto-cert
   rules:
     # - host: cryptoapp.neamulkabiremon.com
-    - host: 35.255.220.46.nip.io
+    - host: books.35.255.220.46.nip.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: crypto-service
+                name: books-service
                 port:
                   number: 80
