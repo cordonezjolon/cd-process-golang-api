@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/cordonezjolon/book-golang-api.git
+    repoURL: https://github.com/cordonezjolon/cd-process-golang-api.git
     targetRevision: develop
-    path: environments/dev
+    path: apps/books-api
   destination:
     server: https://kubernetes.default.svc
     namespace: books-api-development
