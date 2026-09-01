@@ -27,7 +27,7 @@ spec:
         name: books-api
         envFrom:
         - secretRef:
-          name: books-go-api-secret
+            name: books-go-api-secret
 
         ports:
         - containerPort: 8080
