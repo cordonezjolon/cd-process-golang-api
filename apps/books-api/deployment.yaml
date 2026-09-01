@@ -25,6 +25,10 @@ spec:
       - image: cordonezjolon/books-go-api:develop-58
         imagePullPolicy: Always
         name: books-api
+        envFrom:
+        - secretRef:
+          name: books-go-api-secret
+
         ports:
         - containerPort: 8080
           name: http
