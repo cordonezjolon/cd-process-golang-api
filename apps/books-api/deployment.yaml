@@ -22,7 +22,7 @@ spec:
         app: books-api
     spec:
       containers:
-      - image: cordonezjolon/books-go-api:-61
+      - image: cordonezjolon/books-go-api:develop-62
         imagePullPolicy: Always
         name: books-api
         envFrom:
