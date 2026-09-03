@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: books-api-development
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: books-api
+  name: books-api
+  namespace: books-api-development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: books-api
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: books-api
+    spec:
+      containers:
+      - image: cordonezjolon/books-go-api:develop-66
+        imagePullPolicy: Always
+        name: books-api
+        envFrom:
+        - secretRef:
+            name: books-go-api-secret
+
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
